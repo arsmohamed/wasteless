@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 
 const LocationIndicator = ({ location, distance }) => {
