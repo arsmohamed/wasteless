@@ -1,16 +1,25 @@
-import { StatusBar } from "expo-status-bar";
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Provider } from "react-redux";
-import store from "./src/redux/store"; // Import your Redux store
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "./src/screens/Home";
+import Add from "./src/screens/Add";
+import Chat from "./src/screens/Chat";
+import Portfolio from "./src/screens/Portfolio";
+import BottomTabBar from "./src/navigation/BottomTabBar";
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
-    </Provider>
+    <NavigationContainer>
+      <Tab.Navigator tabBar={(props) => <BottomTabBar {...props} />}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Add" component={Add} />
+        <Tab.Screen name="Chat" component={Chat} />
+        <Tab.Screen name="Portfolio" component={Portfolio} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
